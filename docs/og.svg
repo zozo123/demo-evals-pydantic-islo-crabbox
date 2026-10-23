@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow" cx="22%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#9eff6e" stop-opacity="0.10"/>
+      <stop offset="0.55" stop-color="#9eff6e" stop-opacity="0.02"/>
+      <stop offset="1" stop-color="#9eff6e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect x="0" y="2" width="4" height="2" fill="#000" fill-opacity="0.22"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0c0e0c"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- brand / kicker -->
+  <g font-family="IBM Plex Mono, Menlo, monospace">
+    <rect x="80" y="86" width="40" height="2" fill="#9eff6e"/>
+    <text x="136" y="95" font-size="21" letter-spacing="3" fill="#9eff6e">AFTER JOSHUA GÖRNER · PYCON DE 2026</text>
+    <text x="1120" y="95" font-size="22" letter-spacing="1.5" fill="#7d8a7b" text-anchor="end"><tspan fill="#9eff6e" font-weight="bold">evals</tspan>·pydantic·crabbox</text>
+  </g>
+
+  <!-- headline -->
+  <g font-family="Instrument Serif, Didot, Baskerville, Georgia, serif" fill="#f2f6f0">
+    <text x="76" y="235" font-size="104">Realistic evals,</text>
+    <text x="76" y="345" font-size="104">or you're <tspan font-style="italic" fill="#9eff6e">blind.</tspan></text>
+  </g>
+
+  <!-- subline -->
+  <text x="80" y="415" font-family="IBM Plex Mono, Menlo, monospace" font-size="26" fill="#cdd6cb">Pydantic AI × Pydantic Evals × crabbox — runnable demo</text>
+
+  <!-- terminal command -->
+  <g font-family="IBM Plex Mono, Menlo, monospace" font-size="22">
+    <rect x="80" y="450" width="510" height="56" fill="#121512" stroke="#2a312a" stroke-width="1.5"/>
+    <text x="102" y="485" fill="#9eff6e">$</text>
+    <text x="128" y="485" fill="#cdd6cb">uv run python -m evals.run_evals</text>
+    <rect x="562" y="466" width="11" height="24" fill="#9eff6e"/>
+  </g>
+
+  <!-- footer -->
+  <rect x="80" y="548" width="1040" height="1.5" fill="#2a312a"/>
+  <text x="80" y="594" font-family="Instrument Serif, Didot, Baskerville, Georgia, serif" font-style="italic" font-size="34" fill="#f2f6f0">Yossi Eliaz</text>
+  <text x="1120" y="592" font-family="IBM Plex Mono, Menlo, monospace" font-size="19" fill="#7d8a7b" text-anchor="end">zozo123.github.io/demo-evals-pydantic-islo-crabbox</text>
+
+  <rect width="1200" height="630" fill="url(#scan)"/>
+</svg>

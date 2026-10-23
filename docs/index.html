@@ -3,8 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Evals or You're Blind — Pydantic AI × Pydantic Evals × crabbox</title>
-<meta name="description" content="A runnable demo: realistic Pydantic Evals grading a Pydantic AI agent, executed on disposable boxes via crabbox. Built around the 7 anti-lessons from PyCon DE.">
+<title>Realistic Evals for a Pydantic AI Agent · Yossi Eliaz</title>
+<meta name="description" content="Runnable demo by Yossi Eliaz: Pydantic Evals grade a Pydantic AI build-triage agent offline, live, or on a disposable crabbox box. Built around Joshua Görner's PyCon DE 2026 talk.">
+<meta name="author" content="Yossi Eliaz">
+<link rel="canonical" href="https://zozo123.github.io/demo-evals-pydantic-islo-crabbox/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Yossi Eliaz">
+<meta property="og:url" content="https://zozo123.github.io/demo-evals-pydantic-islo-crabbox/">
+<meta property="og:title" content="Realistic Evals for a Pydantic AI Agent">
+<meta property="og:description" content="Runnable demo by Yossi Eliaz: Pydantic Evals grade a Pydantic AI triage agent offline, live, or on a crabbox box. After Joshua Görner's PyCon DE talk.">
+<meta property="og:image" content="https://zozo123.github.io/demo-evals-pydantic-islo-crabbox/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Realistic evals, or you're blind. Pydantic AI × Pydantic Evals × crabbox runnable demo by Yossi Eliaz">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Realistic Evals for a Pydantic AI Agent">
+<meta name="twitter:description" content="Runnable demo by Yossi Eliaz: Pydantic Evals grade a Pydantic AI triage agent offline, live, or on a crabbox box. After Joshua Görner's PyCon DE talk.">
+<meta name="twitter:image" content="https://zozo123.github.io/demo-evals-pydantic-islo-crabbox/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"Realistic Evals for a Pydantic AI Agent","description":"Runnable demo: Pydantic Evals grading a Pydantic AI build-triage agent, offline or on a disposable crabbox box, built around Joshua Görner's PyCon DE 2026 talk.","url":"https://zozo123.github.io/demo-evals-pydantic-islo-crabbox/","image":"https://zozo123.github.io/demo-evals-pydantic-islo-crabbox/og.png","datePublished":"2026-06-03","codeRepository":"https://github.com/zozo123/demo-evals-pydantic-islo-crabbox","author":{"@type":"Person","name":"Yossi Eliaz","url":"https://yossieliaz.netlify.app/","sameAs":["https://github.com/zozo123","https://www.linkedin.com/in/yossi-eliaz/"]}}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -66,7 +84,7 @@ header{
 .nav-links a:hover{color:var(--phosphor)}
 
 /* ---------- hero ---------- */
-.hero{padding:96px 0 72px;position:relative}
+.hero{padding:96px 28px 72px;position:relative}
 .hero .kicker{
   color:var(--phosphor);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;
   display:flex;align-items:center;gap:12px;margin-bottom:30px;
@@ -113,7 +131,7 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.6vw,48px);col
 .lesson:hover{background:var(--panel-2)}
 .lesson .num{position:absolute;top:18px;right:20px;font-family:var(--serif);font-size:34px;color:var(--line);font-style:italic;transition:color .25s}
 .lesson:hover .num{color:var(--phosphor-dim)}
-.lesson .myth{color:var(--red);font-size:13px;text-decoration:line-through;text-decoration-color:rgba(255,110,110,.6)}
+.lesson .myth{padding-right:34px;color:var(--red);font-size:13px;text-decoration:line-through;text-decoration-color:rgba(255,110,110,.6)}
 .lesson .truth{color:#e9efe6;font-size:15.5px;margin-top:8px;font-weight:500}
 .lesson .where{margin-top:14px;font-size:12px;color:var(--dim)}
 .lesson .where code{color:var(--amber);background:rgba(255,196,107,.07);padding:1px 6px;border:1px solid rgba(255,196,107,.15)}
@@ -171,10 +189,27 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.6vw,48px);col
 footer{border-top:1px solid var(--line);padding:48px 0 64px;color:var(--dim);font-size:12.5px}
 footer .cols{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between}
 footer .sig{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--text)}
+footer .end{text-align:right}
+footer .mt10{margin-top:10px}
+footer .mt6{margin-top:6px}
+footer .ok{color:var(--phosphor)}
+section.throughline{padding-top:0}
+.throughline h2{max-width:820px}
+.sub.links{margin-top:24px}
+.sub.links a{overflow-wrap:anywhere}
+.report-frame{max-width:100%;min-width:0}
+pre{max-width:100%;overflow-x:auto}
+.byline{margin-top:18px;font-size:13px;color:var(--dim)}
 @media(max-width:640px){
-  .hero{padding:64px 0 48px}
+  .wrap{padding:0 16px}
+  .nav{height:auto;min-height:54px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap;gap:2px 16px}
+  .nav-links{gap:4px 14px;flex-wrap:wrap}
+  .hero{padding:64px 16px 48px}
+  .hero .cmd{max-width:100%;font-size:13px;padding:12px 14px;overflow-x:auto}
   section{padding:60px 0}
   .pipe .stage::after{display:none}
+  .lessons,.tiers{grid-template-columns:1fr}
+  footer .end{text-align:left}
 }
 </style>
 </head>
@@ -197,12 +232,13 @@ footer .sig{font-family:var(--serif);font-style:italic;font-size:17px;color:var(
     <div class="kicker reveal d1">pydantic ai × pydantic evals × crabbox</div>
     <h1 class="reveal d2">Realistic evals,<br>or you're <em>blind.</em></h1>
     <p class="lede reveal d3">
-      A runnable demo built from the seven anti-lessons of
-      <strong>"7 Anti-Lessons from Building a Pydantic AI Agent"</strong> (PyCon DE):
-      one agent, two tools, a markdown workflow — and an eval suite of real user
-      journeys that catches the bug manual testing never will. Then the whole
-      thing runs on a disposable Linux box in 6.2 seconds.
+      A runnable demo built from Joshua Görner's PyCon DE 2026 talk
+      <strong>"7 Anti-Lessons from Building a Pydantic AI Agent"</strong>:
+      one agent, two tools, a markdown workflow, and an eval suite of realistic user
+      journeys that catches a deliberate bug in the offline stub. One cold run on
+      crabbox's local <code>apple-container</code> provider took 6.2&nbsp;s end to end.
     </p>
+    <p class="byline reveal d3">By <a href="https://zozo123.github.io/">Yossi Eliaz</a> · demo · June 2026</p>
     <div class="cmd reveal d4">
       <span class="prompt">$</span>
       <span>uv run python -m evals.run_evals</span>
@@ -374,21 +410,21 @@ Failing cases:
 <span class="c"># or explicitly:</span>
 <span class="g">$</span> crabbox run -provider apple-container \
     -- bash scripts/run_evals_remote.sh</pre>
-          <div class="stat">measured cold run <b>6.2s</b> end-to-end</div>
+          <div class="stat">one cold run <b>6.2s</b> end-to-end · local apple-container</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section class="throughline">
     <div class="wrap">
       <div class="sec-label">05 · the throughline</div>
-      <h2 style="max-width:820px">Simpler systems, honest evals, and a human in the loop will take you further than clever architecture.</h2>
-      <p class="sub" style="margin-top:24px">
+      <h2>Simpler systems, honest evals, and a human in the loop will take you further than clever architecture.</h2>
+      <p class="sub links">
         Read the code: <a href="https://github.com/zozo123/demo-evals-pydantic-islo-crabbox">github.com/zozo123/demo-evals-pydantic-islo-crabbox</a> ·
         Docs: <a href="https://pydantic.dev/docs/ai/evals/">Pydantic Evals</a> ·
         <a href="https://ai.pydantic.dev">Pydantic AI</a> ·
-        <a href="https://crabbox.sh">crabbox</a>
+        <a href="https://crabbox.sh">crabbox</a> (<a href="https://github.com/openclaw/crabbox">openclaw/crabbox</a>)
       </p>
     </div>
   </section>
@@ -398,11 +434,12 @@ Failing cases:
   <div class="wrap cols">
     <div>
       <div class="sig">"Realistic evals or you're blind."</div>
-      <div style="margin-top:10px">After Joshua Görner's talk at PyCon DE &amp; PyData 2026.</div>
+      <div class="mt10">After Joshua Görner's talk at PyCon DE &amp; PyData 2026.</div>
+      <div class="mt6"><a href="https://yossieliaz.netlify.app/">Yossi Eliaz</a> · <a href="https://zozo123.github.io/">Writing &amp; experiments</a></div>
     </div>
-    <div style="text-align:right">
+    <div class="end">
       <div>uv run python -m evals.run_evals</div>
-      <div style="margin-top:6px;color:var(--phosphor)">assertion pass rate 91.7% — and that's the point.</div>
+      <div class="mt6 ok">offline-stub assertion pass rate 91.7% — and that's the point.</div>
     </div>
   </div>
 </footer>

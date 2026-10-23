@@ -8,7 +8,7 @@ A complete, runnable demo of [Pydantic Evals](https://pydantic.dev/docs/ai/evals
 grading a [Pydantic AI](https://ai.pydantic.dev) agent, built around the seven
 anti-lessons from Joshua Görner's PyCon DE talk *"7 Anti-Lessons from Building a
 Pydantic AI Agent"* — and runnable on a disposable Linux box via
-[crabbox](https://crabbox.sh).
+[crabbox](https://crabbox.sh) ([openclaw/crabbox](https://github.com/openclaw/crabbox)).
 
 ## What's in the box
 
